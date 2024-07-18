@@ -10,3 +10,6 @@ Thread --> proses ringan yang dijalankan pada proses aplikasi
 ## Learning
 - test/ThreadTest.java
 - main/DeamonApp.java
+- main/Counter.java
+- test/RaceConditionTest.java
+- test/SynchronizationTest.java
