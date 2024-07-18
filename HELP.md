@@ -12,4 +12,9 @@ Thread --> proses ringan yang dijalankan pada proses aplikasi
 - main/DeamonApp.java
 - main/Counter.java
 - test/RaceConditionTest.java
+- main/SynchronizedCounter.java
 - test/SynchronizationTest.java
+- main/Balance.java
+- test/DeadlockTest.java
+- test/ThreadCommunicationTest.java
+- test/TimerTest.java
