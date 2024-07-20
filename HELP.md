@@ -23,3 +23,6 @@ Thread --> proses ringan yang dijalankan pada proses aplikasi
 Untuk mempermudah penggunaan multithread
 - test/ThreadPoolTest.java
 - test/ExecutorServiceTest.java
+- test/FutureTest.java
+- test/CompletableFutureTest.java
+- test/CompletionServiceTest.java
