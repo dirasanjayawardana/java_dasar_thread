@@ -13,7 +13,7 @@ public class SynchronizedCounter {
 
   private Long value = 0L;
 
-  // menggunakan sychronized statement (harus menentukan blok mana yang akan di synchronized, dan di object mana/conto this)
+  // menggunakan sychronized statement (harus menentukan blok mana yang akan di synchronized, dan di object mana/contoh this)
   public void increment() {
     synchronized (this) {
       value++;

@@ -26,3 +26,5 @@ Untuk mempermudah penggunaan multithread
 - test/FutureTest.java
 - test/CompletableFutureTest.java
 - test/CompletionServiceTest.java
+- test/ScheduledExecutorServiceTest.java
+- test/AtomicTest.java
