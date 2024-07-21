@@ -28,3 +28,13 @@ Untuk mempermudah penggunaan multithread
 - test/CompletionServiceTest.java
 - test/ScheduledExecutorServiceTest.java
 - test/AtomicTest.java
+- test/LockTest.java
+
+### Synchronizer
+Pada package Concurrent terdapat banyak class untuk melakukan synchronizer, ini merupakan improvement dari locks, namun digunakan pada kasus-kasus terentu.
+class-class Synchronizer banyak menggunakan locks, namun tidak perlu melakukannya secara manual, karena sudha diatur secara otomatis oleh class-class nya sendiri.
+- Semaphore
+- CountDownLatch
+- CyclicBarrier
+- Pharser
+- Exchanger
