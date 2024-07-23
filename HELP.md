@@ -36,5 +36,5 @@ class-class Synchronizer banyak menggunakan locks, namun tidak perlu melakukanny
 - test/SemaphoreTest.java
 - test/CountDownLatchTest.java
 - test/CyclicBarrierTest.java
-- test/Pharser.java
-- test/Exchanger.java
+- test/PharserTest.java
+- test/ExchangerTest.java
