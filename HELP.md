@@ -38,3 +38,6 @@ class-class Synchronizer banyak menggunakan locks, namun tidak perlu melakukanny
 - test/CyclicBarrierTest.java
 - test/PharserTest.java
 - test/ExchangerTest.java
+
+- test/BlockingQueueTest.java
+- test/ConcurrentMapTest.java
