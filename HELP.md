@@ -43,4 +43,5 @@ class-class Synchronizer banyak menggunakan locks, namun tidak perlu melakukanny
 - test/ConcurrentMapTest.java
 - test/ThreadLocalTest.java
 - test/ThreadLocalRandomTest.java
-- test/ForkJoinTest.java
+- test/ParallelStreamTest.java
+- test/ReactiveStreamTest.java
