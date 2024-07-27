@@ -18,7 +18,9 @@ public class ReactiveStreamTest {
 
   @Test
   void publish() throws InterruptedException {
+    // untuk publisher tidak perlu implementasi manual, sudah ada SubmissionPublisher<T>
     SubmissionPublisher<String> publisher = new SubmissionPublisher<>();
+    // untuk subscriber harus implementasi manual, membuat class
     PrintSubscriber subscriber1 = new PrintSubscriber("A", 1000L);
     PrintSubscriber subscriber2 = new PrintSubscriber("B", 500L);
     publisher.subscribe(subscriber1);
@@ -27,8 +29,9 @@ public class ReactiveStreamTest {
     ExecutorService executor = Executors.newFixedThreadPool(10);
     executor.execute(() -> {
       for (int i = 0; i < 100; i++) {
-        publisher.submit("Dira-" + i);
-        System.out.println(Thread.currentThread().getName() + " : Send Dira-" + i);
+        // melakukan publish data, data yang telah dipublish bisa diconsume oleh masing masing subscriber sesuai kebutuhannya
+        publisher.submit("DATA-" + i);
+        System.out.println(Thread.currentThread().getName() + " : Send DATA-" + i);
       }
     });
 
@@ -39,6 +42,9 @@ public class ReactiveStreamTest {
   }
 
 
+  // ketika publisher mengirim data terlalu cepat, maka secara default data akan dibuffer (mirip seperti antrian)
+  // secara default kapasitas buffer adalah 256 data --> SubmissionPublisher<>(Executor, bufferSize)
+  // jika sudah penuh maka publisher harus menunggu sampai data diambil oleh subscriber
   @Test
   void buffer() throws InterruptedException {
     SubmissionPublisher<String> publisher = new SubmissionPublisher<>(Executors.newWorkStealingPool(), 10);
@@ -50,8 +56,8 @@ public class ReactiveStreamTest {
     ExecutorService executor = Executors.newFixedThreadPool(10);
     executor.execute(() -> {
       for (int i = 0; i < 100; i++) {
-        publisher.submit("Dira-" + i);
-        System.out.println(Thread.currentThread().getName() + " : Send Dira-" + i);
+        publisher.submit("DATA-" + i);
+        System.out.println(Thread.currentThread().getName() + " : Send DATA-" + i);
       }
     });
 
@@ -62,6 +68,8 @@ public class ReactiveStreamTest {
   }
 
 
+  // Processor adalah gabungan antara publisher dan juga subscriber
+  // bisa menerima data dari publisher lain, dan bisa mengirim data ke subscriber lain
   @Test
   void processor() throws InterruptedException {
     SubmissionPublisher<String> publisher = new SubmissionPublisher<>();
@@ -75,8 +83,8 @@ public class ReactiveStreamTest {
     ExecutorService executor = Executors.newFixedThreadPool(10);
     executor.execute(() -> {
       for (int i = 0; i < 100; i++) {
-        publisher.submit("Dira-" + i);
-        System.out.println(Thread.currentThread().getName() + " : Send Dira-" + i);
+        publisher.submit("DATA-" + i);
+        System.out.println(Thread.currentThread().getName() + " : Send DATA-" + i);
       }
     });
 
@@ -143,6 +151,7 @@ public class ReactiveStreamTest {
     @Override
     public void onNext(String item) {
       String value = "Hello " + item;
+      // mengirim data ke subscriber
       submit(value);
       this.subscription.request(1);
     }
