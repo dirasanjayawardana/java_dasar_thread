@@ -1,11 +1,29 @@
 # Java Thread
 Thread --> proses ringan yang dijalankan pada proses aplikasi
 
-- Concurency --> mengerjakan beberapa pekerjaan satu persatu pada satu waktu
-- Parallel --> mengerjakan beberapa pekerjaan sekaligus dalam satu waktu
-
 - Synchronous/Blocking --> kode program berjalan secara sequential(berurut), semua tahapan ditunggu sampai prosesnya selesai, baru melanjutkan eksekusi tahapan selanjutnya
 - Asnchronous/NonBlocking --> kode program berjalan dan tidak menunggu eksekusi kode selesai, langsung melanjutkan ke tahapan kode selanjutnya
+
+## Parallel Programming
+- Definisi: Parallel programming adalah teknik menjalankan beberapa tugas secara bersamaan pada berbagai core CPU, memungkinkan eksekusi tugas-tugas tersebut benar-benar berjalan di waktu yang sama (simultan).
+Tujuan: Mempercepat eksekusi tugas dengan membaginya ke beberapa bagian yang dapat dijalankan secara paralel.
+- Contoh: Prosesor dengan banyak core yang menjalankan tugas besar dengan membagi bagian-bagian tugas ke setiap core.
+- Penggunaan: Sangat berguna dalam aplikasi yang memerlukan komputasi berat seperti pemrosesan data dalam jumlah besar, simulasi ilmiah, atau aplikasi machine learning.
+Contoh Parallel Programming: Misalkan Anda memiliki 1 juta angka yang ingin dijumlahkan. Dengan parallel programming, Anda bisa membagi data ini menjadi beberapa bagian, dan tiap bagian dijumlahkan secara paralel oleh core yang berbeda, lalu hasilnya digabungkan.
+
+## Concurrency Programming
+- Definisi: Concurrency programming adalah teknik yang memungkinkan beberapa tugas tampak berjalan secara bersamaan dengan mengatur pengaksesan dan pengalihan di antara tugas-tugas tersebut, meskipun tidak harus berjalan di waktu yang sama.
+- Tujuan: Mengelola banyak tugas secara efisien dengan membuat mereka beralih secara cepat dan meminimalkan waktu tunggu.
+Contoh: Sistem operasi yang mengelola beberapa aplikasi berjalan "bersamaan" dengan bergantian mengalokasikan waktu prosesor ke tiap aplikasi.
+- Penggunaan: Concurrency lebih umum pada aplikasi yang menunggu masukan/keluaran (I/O-bound), seperti server web yang harus menangani banyak permintaan atau aplikasi GUI yang merespons input pengguna.
+Contoh Concurrency Programming: Misalkan ada dua tugas: membaca file besar dan menghitung sesuatu. Dengan concurrency, alih-alih menunggu seluruh file terbaca, program bisa memulai perhitungan di sela-sela membaca bagian-bagian file. Tugas-tugas ini mungkin terlihat berjalan bersamaan, tetapi sebenarnya mereka hanya bergantian.
+
+### Perbedaan Utama
+- Aspek	|| Parallel Programming	|| Concurrency Programming
+- Tujuan || Meningkatkan kecepatan dengan pemrosesan simultan || Mengelola beberapa tugas dengan efisien agar tetap responsif
+- Eksekusi || Tugas benar-benar berjalan secara simultan di beberapa core CPU || Tugas bergantian eksekusi (tidak harus simultan)
+- Jenis Tugas || CPU-bound (komputasi intensif) || I/O-bound atau multitasking
+- Contoh Penerapan || Komputasi ilmiah, Machine Learning || Web server, aplikasi GUI
 
 ## Learning
 - test/ThreadTest.java
